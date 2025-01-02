@@ -46,21 +46,14 @@
             this.rbtnMasculino = new System.Windows.Forms.RadioButton();
             this.rbtnFeminino = new System.Windows.Forms.RadioButton();
             this.rbtnOutro = new System.Windows.Forms.RadioButton();
+            this.txtCpf = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSaldo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtCpf
-            // 
-            this.txtCpf.Location = new System.Drawing.Point(54, 76);
-            this.txtCpf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(154, 20);
-            this.txtCpf.TabIndex = 0;
             // 
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(54, 32);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(154, 20);
             this.txtNome.TabIndex = 1;
@@ -68,7 +61,7 @@
             // txtLogradouro
             // 
             this.txtLogradouro.Location = new System.Drawing.Point(54, 129);
-            this.txtLogradouro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLogradouro.Margin = new System.Windows.Forms.Padding(2);
             this.txtLogradouro.Name = "txtLogradouro";
             this.txtLogradouro.Size = new System.Drawing.Size(232, 20);
             this.txtLogradouro.TabIndex = 3;
@@ -76,7 +69,7 @@
             // txtCidade
             // 
             this.txtCidade.Location = new System.Drawing.Point(54, 179);
-            this.txtCidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCidade.Margin = new System.Windows.Forms.Padding(2);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(154, 20);
             this.txtCidade.TabIndex = 4;
@@ -84,7 +77,7 @@
             // txtEstado
             // 
             this.txtEstado.Location = new System.Drawing.Point(216, 179);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(2);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(70, 20);
             this.txtEstado.TabIndex = 5;
@@ -92,7 +85,7 @@
             // txtPais
             // 
             this.txtPais.Location = new System.Drawing.Point(54, 224);
-            this.txtPais.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPais.Margin = new System.Windows.Forms.Padding(2);
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(232, 20);
             this.txtPais.TabIndex = 6;
@@ -100,7 +93,7 @@
             // NumericSaldo
             // 
             this.NumericSaldo.Location = new System.Drawing.Point(54, 274);
-            this.NumericSaldo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NumericSaldo.Margin = new System.Windows.Forms.Padding(2);
             this.NumericSaldo.Name = "NumericSaldo";
             this.NumericSaldo.Size = new System.Drawing.Size(123, 20);
             this.NumericSaldo.TabIndex = 7;
@@ -108,7 +101,7 @@
             // CadastrarCliente
             // 
             this.CadastrarCliente.Location = new System.Drawing.Point(54, 320);
-            this.CadastrarCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CadastrarCliente.Margin = new System.Windows.Forms.Padding(2);
             this.CadastrarCliente.Name = "CadastrarCliente";
             this.CadastrarCliente.Size = new System.Drawing.Size(232, 27);
             this.CadastrarCliente.TabIndex = 8;
@@ -229,11 +222,20 @@
             this.rbtnOutro.Text = "Outro";
             this.rbtnOutro.UseVisualStyleBackColor = true;
             // 
+            // txtCpf
+            // 
+            this.txtCpf.Location = new System.Drawing.Point(54, 76);
+            this.txtCpf.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCpf.Name = "txtCpf";
+            this.txtCpf.Size = new System.Drawing.Size(154, 20);
+            this.txtCpf.TabIndex = 21;
+            // 
             // frmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 367);
+            this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.rbtnOutro);
             this.Controls.Add(this.rbtnFeminino);
             this.Controls.Add(this.rbtnMasculino);
@@ -252,7 +254,6 @@
             this.Controls.Add(this.txtCidade);
             this.Controls.Add(this.txtLogradouro);
             this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.txtCpf);
             this.Name = "frmCadastroCliente";
             this.Text = "Cadastro de Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.NumericSaldo)).EndInit();
@@ -280,5 +281,6 @@
         private System.Windows.Forms.RadioButton rbtnMasculino;
         private System.Windows.Forms.RadioButton rbtnFeminino;
         private System.Windows.Forms.RadioButton rbtnOutro;
+        private System.Windows.Forms.TextBox txtCpf;
     }
 }
