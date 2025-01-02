@@ -18,70 +18,118 @@ namespace PacotesDeViagens
         private string _estado;
         private string _pais;
         private double _saldo;
-       
+
         public string CPF
         {
             get { return _cpf; }
-            set { _cpf = value; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value) || !Regex.IsMatch(value, @"^\d{11}$"))
+                {
+                    throw new ArgumentException("CPF inválido. Deve conter exatamente 11 dígitos numéricos.");
+                }
+                _cpf = value;
+            }
         }
 
         public string Nome
         {
             get { return _nome; }
-            set { _nome = value; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value) || value.Length < 3)
+                {
+                    throw new ArgumentException("Nome inválido. Deve conter pelo menos 3 caracteres.");
+                }
+                _nome = value;
+            }
         }
 
         public string Sexo
         {
             get { return _sexo; }
-            set { _sexo = value; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value) || (value != "M" && value != "F" && value != "Outro"))
+                {
+                    throw new ArgumentException("Sexo inválido. Deve ser 'M', 'F' ou 'Outro'.");
+                }
+                _sexo = value;
+            }
         }
 
         public string Logradouro
         {
             get { return _logradouro; }
-            set { _logradouro = value; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Logradouro não pode ser vazio ou nulo.");
+                }
+                _logradouro = value;
+            }
         }
 
         public string Cidade
         {
             get { return _cidade; }
-            set { _cidade = value; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("Cidade não pode ser vazia ou nula.");
+                }
+                _cidade = value;
+            }
         }
 
         public string Estado
         {
             get { return _estado; }
-            set { _estado = value; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value) || value.Length != 2)
+                {
+                    throw new ArgumentException("Estado inválido. Deve conter exatamente 2 caracteres (sigla).");
+                }
+                _estado = value.ToUpper();
+            }
         }
 
         public string Pais
         {
             get { return _pais; }
-            set { _pais = value; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("País não pode ser vazio ou nulo.");
+                }
+                _pais = value;
+            }
         }
 
         public double Saldo
         {
             get { return _saldo; }
-            set { _saldo = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Saldo não pode ser negativo.");
+                }
+                _saldo = value;
+            }
         }
 
-        /*public Veiculo(string placa, string marca, string modelo, int ano)
-        {
-            Placa = placa;
-            Marca = marca;
-            Modelo = modelo;
-            Ano = ano;
-        }*/
-
-        public Cliente(string CPF, String Nome, string Sexo, string Logradouro, string Cidade, string Estado, string Pais, double Saldo)
+        public Cliente(string CPF, string Nome, string Sexo, string Logradouro, string Cidade, string Estado, string Pais, double Saldo)
         {
             this.CPF = CPF;
             this.Nome = Nome;
             this.Sexo = Sexo;
             this.Logradouro = Logradouro;
-            this.Cidade = Cidade; 
+            this.Cidade = Cidade;
             this.Estado = Estado;
             this.Pais = Pais;
             this.Saldo = Saldo;
@@ -93,24 +141,18 @@ namespace PacotesDeViagens
             {
                 return false;
             }
-            else
-            {
-                this.Saldo = Saldo + valor;
-                return true;
-            }
+            _saldo += valor;
+            return true;
         }
 
         public bool DescontarSaldo(double valor)
         {
-            if (valor <= 0 || Saldo <= 0)
+            if (valor <= 0 || valor > _saldo)
             {
                 return false;
             }
-            else
-            {
-                this.Saldo = Saldo - valor;
-                return true;
-            }
+            _saldo -= valor;
+            return true;
         }
     }
 }

@@ -51,10 +51,11 @@
             this.PaisColuna,
             this.SaldoColuna});
             this.listViewClientes.HideSelection = false;
-            this.listViewClientes.Location = new System.Drawing.Point(12, 107);
+            this.listViewClientes.Location = new System.Drawing.Point(7, 11);
+            this.listViewClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewClientes.MultiSelect = false;
             this.listViewClientes.Name = "listViewClientes";
-            this.listViewClientes.Size = new System.Drawing.Size(730, 211);
+            this.listViewClientes.Size = new System.Drawing.Size(548, 284);
             this.listViewClientes.TabIndex = 0;
             this.listViewClientes.UseCompatibleStateImageBehavior = false;
             this.listViewClientes.View = System.Windows.Forms.View.Details;
@@ -101,13 +102,12 @@
             // 
             // frmExibirCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 376);
+            this.ClientSize = new System.Drawing.Size(566, 306);
             this.Controls.Add(this.listViewClientes);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmExibirCliente";
-            this.Text = "frmExibirCliente";
+            this.Text = "Clientes Cadastrados";
             this.ResumeLayout(false);
 
         }
