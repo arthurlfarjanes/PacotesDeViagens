@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCpf = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtLogradouro = new System.Windows.Forms.TextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
@@ -263,8 +262,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtLogradouro;
         private System.Windows.Forms.TextBox txtCidade;
