@@ -24,6 +24,55 @@ namespace PacotesDeViagens
         {
             try
             {
+                // Captura o CPF digitado
+                string cpf = maskCPF.Text;
+
+                // Remove os caracteres da máscara (pontos e traço)
+                cpf = cpf.Replace(".", "").Replace("-", "");
+
+                // Valida se o CPF está completamente preenchido
+                if (cpf.Length != 11 || !long.TryParse(cpf, out _))
+                {
+                    throw new Exception("Por favor, preencha o CPF corretamente (11 números, formato 000.000.000-00).");
+                }
+
+                // Verifica se todos os dígitos do CPF são iguais
+                if (new string(cpf[0], cpf.Length) == cpf)
+                {
+                    throw new Exception("CPF inválido! Todos os números não podem ser iguais.");
+                }
+
+                // Cálculo do primeiro dígito verificador
+                int soma = 0;
+                for (int i = 0; i < 9; i++)
+                    soma += (cpf[i] - '0') * (10 - i);
+
+                int resto = soma % 11;
+                int digito1 = resto < 2 ? 0 : 11 - resto;
+
+                // Cálculo do segundo dígito verificador
+                soma = 0;
+                for (int i = 0; i < 10; i++)
+                    soma += (cpf[i] - '0') * (11 - i);
+
+                resto = soma % 11;
+                int digito2 = resto < 2 ? 0 : 11 - resto;
+
+                // Verifica se os dígitos calculados conferem
+                if (cpf[9] - '0' != digito1 || cpf[10] - '0' != digito2)
+                {
+                    throw new Exception("CPF inválido! Verifique os números informados.");
+                }
+
+                // Valida o nome (deve conter pelo menos dois nomes)
+                string nome = txtNome.Text.Trim();
+                int espacos = nome.Split(' ').Length - 1;
+
+                if (espacos < 1) // Se houver menos de um sobrenome
+                {
+                    throw new Exception("Por favor, insira o nome completo (nome e sobrenome).");
+                }
+
                 // Obtendo o valor do campo "Sexo" com base nos RadioButtons
                 string sexo = ObterSexoSelecionado();
 
@@ -35,12 +84,12 @@ namespace PacotesDeViagens
 
                 // Tentativa de criar o cliente
                 Cliente novoCliente = new Cliente(
-                    txtCpf.Text,
+                    maskCPF.Text,
                     txtNome.Text,
                     sexo,
                     txtLogradouro.Text,
                     txtCidade.Text,
-                    txtEstado.Text,
+                    cmbEstados.Text,
                     txtPais.Text,
                     Convert.ToDouble(NumericSaldo.Value)
                 );
@@ -74,11 +123,11 @@ namespace PacotesDeViagens
         // Método para limpar os campos após cadastro
         private void LimparCampos()
         {
-            txtCpf.Text = string.Empty;
+            maskCPF.Text = string.Empty;
             txtNome.Text = string.Empty;
             txtLogradouro.Text = string.Empty;
             txtCidade.Text = string.Empty;
-            txtEstado.Text = string.Empty;
+            cmbEstados.Text = string.Empty;
             txtPais.Text = string.Empty;
             NumericSaldo.Value = 0;
 
