@@ -13,87 +13,97 @@ namespace PacotesDeViagens
     public partial class frmCadastroCliente : Form
     {
         List<Cliente> clientes;
+
         public frmCadastroCliente(List<Cliente> clientes)
         {
             InitializeComponent();
             this.clientes = clientes;
         }
 
-
         private void CadastrarCliente_Click(object sender, EventArgs e)
         {
-            //Validação do CPF
-            string cpf = masktextboxCPF.Text;
-            cpf = cpf.Replace(".", "").Replace("-", "");
-            if (cpf.Length != 11 || !long.TryParse(cpf, out _))
+            try
             {
-                MessageBox.Show("Por favor, preencha o CPF corretamente (11 números, formato 000.000.000-00).",
-                                "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                // Obtendo o valor do campo "Sexo" com base nos RadioButtons
+                string sexo = ObterSexoSelecionado();
+
+                if (string.IsNullOrEmpty(sexo))
+                {
+                    MessageBox.Show("Por favor, selecione uma opção para o campo 'Sexo'.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Tentativa de criar o cliente
+                Cliente novoCliente = new Cliente(
+                    txtCpf.Text,
+                    txtNome.Text,
+                    sexo,
+                    txtLogradouro.Text,
+                    txtCidade.Text,
+                    txtEstado.Text,
+                    txtPais.Text,
+                    Convert.ToDouble(NumericSaldo.Value)
+                );
+
+                // Adicionando à lista se válido
+                clientes.Add(novoCliente);
+
+                // Exibindo mensagem de sucesso
+                MessageBox.Show("Cliente cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpar campos após o cadastro
+                LimparCampos();
             }
-            
-            if (new string(cpf[0], cpf.Length) == cpf)
+            catch (ArgumentException ex)
             {
-                MessageBox.Show("CPF inválido! Todos os números não podem ser iguais.",
-                                "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                // Captura de validações da classe Cliente
+                MessageBox.Show(ex.Message, "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            int soma = 0;
-            for (int i = 0; i < 9; i++)
-                soma += (cpf[i] - '0') * (10 - i);
-
-            int resto = soma % 11;
-            int digito1 = resto < 2 ? 0 : 11 - resto;
-
-            soma = 0;
-            for (int i = 0; i < 10; i++)
-                soma += (cpf[i] - '0') * (11 - i);
-
-            resto = soma % 11;
-            int digito2 = resto < 2 ? 0 : 11 - resto;
-
-            if (cpf[9] - '0' != digito1 || cpf[10] - '0' != digito2)
+            catch (FormatException)
             {
-                MessageBox.Show("CPF inválido! Verifique os números informados.",
-                                "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                // Tratamento de erro ao converter valores numéricos
+                MessageBox.Show("O campo Saldo deve conter um valor numérico válido.", "Erro de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            //Validar Nome
-
-            string nome = txtNome.Text.Trim();
-            int espacos = nome.Split(' ').Length - 1;
-
-            if (espacos < 1) // Se houver menos de um sobrenome
+            catch (Exception ex)
             {
-                MessageBox.Show("Por favor, insira o nome completo (nome e sobrenome).",
-                                "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                // Captura de qualquer outro tipo de exceção
+                MessageBox.Show($"Erro inesperado: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
-                //Cadastra o Cliente
-                clientes.Add(new Cliente(
-                masktextboxCPF.Text,
-                txtNome.Text,
-                txtSexo.Text,
-                txtLogradouro.Text,
-                txtCidade.Text,
-                txtEstado.Text,
-                txtPais.Text,
-                Convert.ToDouble(NumericSaldo.Value)
-            ));
-
-            MessageBox.Show("Cadastrado com sucesso!");
         }
 
-
-
-        private void frmCadastroCliente_Load(object sender, EventArgs e)
+        // Método para limpar os campos após cadastro
+        private void LimparCampos()
         {
+            txtCpf.Text = string.Empty;
+            txtNome.Text = string.Empty;
+            txtLogradouro.Text = string.Empty;
+            txtCidade.Text = string.Empty;
+            txtEstado.Text = string.Empty;
+            txtPais.Text = string.Empty;
+            NumericSaldo.Value = 0;
 
+            // Resetando os RadioButtons
+            rbtnMasculino.Checked = false;
+            rbtnFeminino.Checked = false;
+            rbtnOutro.Checked = false;
+        }
+
+        // Método para obter o sexo selecionado pelos RadioButtons
+        private string ObterSexoSelecionado()
+        {
+            if (rbtnMasculino.Checked)
+            {
+                return "M";
+            }
+            else if (rbtnFeminino.Checked)
+            {
+                return "F";
+            }
+            else if (rbtnOutro.Checked)
+            {
+                return "Outro";
+            }
+            return null;
         }
     }
 }
