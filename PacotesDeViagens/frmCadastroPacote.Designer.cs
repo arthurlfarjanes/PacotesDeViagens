@@ -32,12 +32,11 @@
             // 
             // frmCadastroPacote
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 311);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClientSize = new System.Drawing.Size(375, 350);
             this.Name = "frmCadastroPacote";
-            this.Text = "frmCadastroPacote";
+            this.Text = "Cadastro de Pacote de Viagem";
             this.ResumeLayout(false);
 
         }

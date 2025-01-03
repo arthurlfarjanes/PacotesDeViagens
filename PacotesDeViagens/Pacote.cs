@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace PacotesDeViagens
 {
-    // Comentário aaaaa
     public class Pacote
     {
         private int _id;
