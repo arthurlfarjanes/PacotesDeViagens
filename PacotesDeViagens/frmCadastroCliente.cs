@@ -154,5 +154,15 @@ namespace PacotesDeViagens
             }
             return null;
         }
+
+        private void TirarSimbolos(object sender, KeyPressEventArgs e)
+        {
+            //validação para permitir apenas números e backspace:
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                // Cancela a tecla pressionada
+                e.Handled = true;
+            }
+        }
     }
 }

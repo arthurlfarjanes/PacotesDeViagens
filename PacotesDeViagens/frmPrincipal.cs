@@ -109,7 +109,7 @@ namespace PacotesDeViagens
         {
             if (FrmExibirReservaObj == null || FrmExibirReservaObj.IsDisposed)
             {
-                FrmExibirReservaObj = new frmExibirReserva(reservas);
+                FrmExibirReservaObj = new frmExibirReserva(reservas, clientes);
                 FrmExibirReservaObj.MdiParent = this;
                 FrmExibirReservaObj.Show();
             }

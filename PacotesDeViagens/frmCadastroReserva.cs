@@ -57,19 +57,6 @@ namespace PacotesDeViagens
                 // Captura a quantidade de pacotes desejados
                 int quantidadePacotes = (int)nudQuantidadePacote.Value;
 
-                // Calcula o valor total da reserva
-                double valorTotalReserva = pacote.Valor * quantidadePacotes;
-
-                // Verifica se o cliente possui saldo suficiente
-                if (cliente.Saldo < valorTotalReserva)
-                {
-                    MessageBox.Show("Saldo insuficiente para confirmar a reserva.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // Deduz o valor da reserva do saldo do cliente
-                cliente.Saldo -= valorTotalReserva;
-
                 // Cria uma lista de pacotes para a reserva (quantidade de pacotes desejados)
                 List<Pacote> pacotesReserva = new List<Pacote>();
                 for (int i = 0; i < quantidadePacotes; i++)
@@ -79,7 +66,7 @@ namespace PacotesDeViagens
 
                 // Criação da reserva
                 int idReserva = reservas.Count > 0 ? reservas.Max(r => r.Id) + 1 : 1;  // Gerando um ID único para a reserva
-                Reserva novaReserva = new Reserva(idReserva, "Confirmada", pacotesReserva)
+                Reserva novaReserva = new Reserva(idReserva, "Pendente", pacotesReserva)
                 {
                     CpfCliente = cpfCliente
                 };
@@ -87,11 +74,8 @@ namespace PacotesDeViagens
                 // Adiciona a reserva à lista
                 reservas.Add(novaReserva);
 
-                // Exibe mensagem de sucesso com o nome do cliente e saldo atualizado
-                MessageBox.Show($"Reserva cadastrada e confirmada com sucesso!\nCliente: {cliente.Nome}\nSaldo atualizado: R$ {cliente.Saldo:F2}",
-                "Sucesso",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+                // Exibe mensagem de sucesso
+                MessageBox.Show("Reserva cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Limpar os campos após o cadastro
                 LimparCampos();
@@ -99,7 +83,7 @@ namespace PacotesDeViagens
             catch (Exception ex)
             {
                 // Caso ocorra algum erro
-                MessageBox.Show($"Erro ao confirmar a reserva: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao cadastrar reserva: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void LimparCampos()

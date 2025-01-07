@@ -54,7 +54,7 @@
             // 
             this.txtNome.BackColor = System.Drawing.SystemColors.Window;
             this.txtNome.Location = new System.Drawing.Point(54, 32);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(154, 20);
             this.txtNome.TabIndex = 1;
@@ -62,7 +62,7 @@
             // txtLogradouro
             // 
             this.txtLogradouro.Location = new System.Drawing.Point(54, 132);
-            this.txtLogradouro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLogradouro.Margin = new System.Windows.Forms.Padding(2);
             this.txtLogradouro.Name = "txtLogradouro";
             this.txtLogradouro.Size = new System.Drawing.Size(232, 20);
             this.txtLogradouro.TabIndex = 3;
@@ -71,7 +71,7 @@
             // txtCidade
             // 
             this.txtCidade.Location = new System.Drawing.Point(54, 183);
-            this.txtCidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCidade.Margin = new System.Windows.Forms.Padding(2);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(154, 20);
             this.txtCidade.TabIndex = 4;
@@ -79,7 +79,7 @@
             // txtPais
             // 
             this.txtPais.Location = new System.Drawing.Point(54, 232);
-            this.txtPais.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPais.Margin = new System.Windows.Forms.Padding(2);
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(232, 20);
             this.txtPais.TabIndex = 6;
@@ -87,7 +87,7 @@
             // NumericSaldo
             // 
             this.NumericSaldo.Location = new System.Drawing.Point(54, 278);
-            this.NumericSaldo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NumericSaldo.Margin = new System.Windows.Forms.Padding(2);
             this.NumericSaldo.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -96,6 +96,7 @@
             this.NumericSaldo.Name = "NumericSaldo";
             this.NumericSaldo.Size = new System.Drawing.Size(123, 20);
             this.NumericSaldo.TabIndex = 7;
+            this.NumericSaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TirarSimbolos);
             // 
             // CadastrarCliente
             // 
@@ -105,7 +106,7 @@
             this.CadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.CadastrarCliente.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.CadastrarCliente.Location = new System.Drawing.Point(54, 320);
-            this.CadastrarCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CadastrarCliente.Margin = new System.Windows.Forms.Padding(2);
             this.CadastrarCliente.Name = "CadastrarCliente";
             this.CadastrarCliente.Size = new System.Drawing.Size(232, 27);
             this.CadastrarCliente.TabIndex = 8;
@@ -246,7 +247,7 @@
             // 
             this.maskCPF.HidePromptOnLeave = true;
             this.maskCPF.Location = new System.Drawing.Point(55, 82);
-            this.maskCPF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maskCPF.Margin = new System.Windows.Forms.Padding(2);
             this.maskCPF.Mask = "000,000,000-00";
             this.maskCPF.Name = "maskCPF";
             this.maskCPF.Size = new System.Drawing.Size(154, 20);
@@ -286,7 +287,7 @@
             "SE",
             "TO"});
             this.cmbEstados.Location = new System.Drawing.Point(216, 183);
-            this.cmbEstados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbEstados.Margin = new System.Windows.Forms.Padding(2);
             this.cmbEstados.Name = "cmbEstados";
             this.cmbEstados.Size = new System.Drawing.Size(71, 21);
             this.cmbEstados.TabIndex = 22;
