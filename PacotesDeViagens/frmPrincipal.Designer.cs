@@ -66,21 +66,21 @@
             // pacoteToolStripMenuItem1
             // 
             this.pacoteToolStripMenuItem1.Name = "pacoteToolStripMenuItem1";
-            this.pacoteToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.pacoteToolStripMenuItem1.Size = new System.Drawing.Size(143, 26);
             this.pacoteToolStripMenuItem1.Text = "Pacote";
             this.pacoteToolStripMenuItem1.Click += new System.EventHandler(this.pacoteToolStripMenuItem1_Click);
             // 
             // reservaToolStripMenuItem1
             // 
             this.reservaToolStripMenuItem1.Name = "reservaToolStripMenuItem1";
-            this.reservaToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.reservaToolStripMenuItem1.Size = new System.Drawing.Size(143, 26);
             this.reservaToolStripMenuItem1.Text = "Reserva";
             this.reservaToolStripMenuItem1.Click += new System.EventHandler(this.reservaToolStripMenuItem1_Click);
             // 
             // clienteToolStripMenuItem1
             // 
             this.clienteToolStripMenuItem1.Name = "clienteToolStripMenuItem1";
-            this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(143, 26);
             this.clienteToolStripMenuItem1.Text = "Cliente";
             this.clienteToolStripMenuItem1.Click += new System.EventHandler(this.clienteToolStripMenuItem1_Click);
             // 
@@ -123,8 +123,9 @@
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gerenciamento de Viagens";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip.ResumeLayout(false);

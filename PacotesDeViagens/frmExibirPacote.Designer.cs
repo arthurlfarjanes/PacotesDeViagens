@@ -92,6 +92,7 @@
             this.Controls.Add(this.lvwCadastroPacote);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmExibirPacote";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmExibirPacote";
             this.Load += new System.EventHandler(this.frmExibirPacote_Load);
             this.ResumeLayout(false);
