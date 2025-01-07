@@ -92,5 +92,19 @@ namespace PacotesDeViagens
             get { return _destino; }
             set { _destino = value; }
         }
+
+        //Construtor para receber Cadastro Pacote
+        public Pacote(int id, DateTime Data, DateTime Regresso, Decimal QuantidadedeNoites, Decimal Valor, Decimal QuantidadeDisponivel, string Detalhes, string Destino, string Hospedagem)
+        {
+            this._id = id;
+            this._data = Data;
+            this._regresso = Regresso;
+            this._quantidadeDeNoites = Convert.ToInt16(QuantidadedeNoites);
+            this._valor = Convert.ToInt16(Valor);
+            this._quantidadeDisponivel = Convert.ToInt16(QuantidadeDisponivel);
+            this._detalhes = Detalhes;
+            this._destino = Destino;
+            this._hospedagem = Hospedagem;
+        }
     }
 }

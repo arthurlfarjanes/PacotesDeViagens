@@ -98,7 +98,7 @@ namespace PacotesDeViagens
                 clientes.Add(novoCliente);
 
                 // Exibindo mensagem de sucesso
-                MessageBox.Show("Cliente cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Pacote cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Limpar campos após o cadastro
                 LimparCampos();
