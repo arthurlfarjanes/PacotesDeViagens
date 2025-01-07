@@ -42,7 +42,7 @@
             this.nudValorPacote = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpDataRegresso = new System.Windows.Forms.DateTimePicker();
-            this.CadastrarCliente = new System.Windows.Forms.Button();
+            this.CadastrarPacote = new System.Windows.Forms.Button();
             this.rtxDetalhes = new System.Windows.Forms.RichTextBox();
             this.lblDetalhes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantNoites)).BeginInit();
@@ -190,21 +190,21 @@
             this.dtpDataRegresso.Size = new System.Drawing.Size(150, 20);
             this.dtpDataRegresso.TabIndex = 20;
             // 
-            // CadastrarCliente
+            // CadastrarPacote
             // 
-            this.CadastrarCliente.BackColor = System.Drawing.Color.DodgerBlue;
-            this.CadastrarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CadastrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.CadastrarCliente.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.CadastrarCliente.Location = new System.Drawing.Point(68, 296);
-            this.CadastrarCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.CadastrarCliente.Name = "CadastrarCliente";
-            this.CadastrarCliente.Size = new System.Drawing.Size(232, 27);
-            this.CadastrarCliente.TabIndex = 23;
-            this.CadastrarCliente.Text = "Cadastrar";
-            this.CadastrarCliente.UseVisualStyleBackColor = false;
-            this.CadastrarCliente.Click += new System.EventHandler(this.CadastrarCliente_Click);
+            this.CadastrarPacote.BackColor = System.Drawing.Color.DodgerBlue;
+            this.CadastrarPacote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CadastrarPacote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CadastrarPacote.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.CadastrarPacote.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.CadastrarPacote.Location = new System.Drawing.Point(68, 296);
+            this.CadastrarPacote.Margin = new System.Windows.Forms.Padding(2);
+            this.CadastrarPacote.Name = "CadastrarPacote";
+            this.CadastrarPacote.Size = new System.Drawing.Size(232, 27);
+            this.CadastrarPacote.TabIndex = 23;
+            this.CadastrarPacote.Text = "Cadastrar";
+            this.CadastrarPacote.UseVisualStyleBackColor = false;
+            this.CadastrarPacote.Click += new System.EventHandler(this.CadastrarPacote_Click);
             // 
             // rtxDetalhes
             // 
@@ -231,7 +231,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 348);
             this.Controls.Add(this.rtxDetalhes);
-            this.Controls.Add(this.CadastrarCliente);
+            this.Controls.Add(this.CadastrarPacote);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpDataRegresso);
             this.Controls.Add(this.lblDetalhes);
@@ -274,7 +274,7 @@
         private System.Windows.Forms.NumericUpDown nudValorPacote;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpDataRegresso;
-        private System.Windows.Forms.Button CadastrarCliente;
+        private System.Windows.Forms.Button CadastrarPacote;
         private System.Windows.Forms.RichTextBox rtxDetalhes;
         private System.Windows.Forms.Label lblDetalhes;
     }

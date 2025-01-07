@@ -21,7 +21,7 @@ namespace PacotesDeViagens
             
         }
 
-        private void CadastrarCliente_Click(object sender, EventArgs e)
+        private void CadastrarPacote_Click(object sender, EventArgs e)
         {
             try
             {
