@@ -31,6 +31,7 @@
             this.listViewReservas = new System.Windows.Forms.ListView();
             this.IdReserva = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StatusReserva = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnConfirmarReserva = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewReservas
@@ -38,11 +39,13 @@
             this.listViewReservas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IdReserva,
             this.StatusReserva});
+            this.listViewReservas.FullRowSelect = true;
             this.listViewReservas.HideSelection = false;
-            this.listViewReservas.Location = new System.Drawing.Point(281, 29);
+            this.listViewReservas.Location = new System.Drawing.Point(211, 24);
+            this.listViewReservas.Margin = new System.Windows.Forms.Padding(2);
             this.listViewReservas.MultiSelect = false;
             this.listViewReservas.Name = "listViewReservas";
-            this.listViewReservas.Size = new System.Drawing.Size(225, 278);
+            this.listViewReservas.Size = new System.Drawing.Size(170, 227);
             this.listViewReservas.TabIndex = 0;
             this.listViewReservas.UseCompatibleStateImageBehavior = false;
             this.listViewReservas.View = System.Windows.Forms.View.Details;
@@ -57,17 +60,26 @@
             this.StatusReserva.Text = "Status";
             this.StatusReserva.Width = 135;
             // 
+            // btnConfirmarReserva
+            // 
+            this.btnConfirmarReserva.Location = new System.Drawing.Point(31, 83);
+            this.btnConfirmarReserva.Name = "btnConfirmarReserva";
+            this.btnConfirmarReserva.Size = new System.Drawing.Size(133, 27);
+            this.btnConfirmarReserva.TabIndex = 1;
+            this.btnConfirmarReserva.Text = "Confirmar Reserva";
+            this.btnConfirmarReserva.UseVisualStyleBackColor = true;
+            this.btnConfirmarReserva.Click += new System.EventHandler(this.btnConfirmarReserva_Click);
+            // 
             // frmExibirReserva
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 319);
+            this.ClientSize = new System.Drawing.Size(598, 259);
+            this.Controls.Add(this.btnConfirmarReserva);
             this.Controls.Add(this.listViewReservas);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmExibirReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmExibirReserva";
-            this.Load += new System.EventHandler(this.frmExibirReserva_Load);
             this.ResumeLayout(false);
 
         }
@@ -77,5 +89,6 @@
         private System.Windows.Forms.ListView listViewReservas;
         private System.Windows.Forms.ColumnHeader IdReserva;
         private System.Windows.Forms.ColumnHeader StatusReserva;
+        private System.Windows.Forms.Button btnConfirmarReserva;
     }
 }

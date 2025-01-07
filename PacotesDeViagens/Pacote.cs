@@ -20,7 +20,7 @@ namespace PacotesDeViagens
 
 
         // Variável que busca a data atual do computador do usuário
-        DateTime DataAtual = DateTime.Now;
+        DateTime DataAtual = DateTime.Now.Date;
 
         public int ID
         {
@@ -46,6 +46,20 @@ namespace PacotesDeViagens
                 _data = value;
             }
         }
+
+        public DateTime DataRegresso
+        {
+            get { return _regresso; }
+            set
+            {
+                if (value < DataAtual)
+                {
+                    throw new ArgumentException("Data inválida! Selecione uma data posterior ou igual à data de hoje.");
+                }
+                _regresso = value;
+            }
+        }
+
         public int QuantidadeDeNoites
         {
             get { return _quantidadeDeNoites; }
@@ -82,29 +96,80 @@ namespace PacotesDeViagens
                 _quantidadeDisponivel = value;
             }
         }
+
+        // Propriedade Detalhes
         public string Detalhes
         {
             get { return _detalhes; }
-            set { _detalhes = value; }
+            set
+            {
+                // Verifica se o campo Detalhes está vazio ou contém apenas espaços
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("O campo 'Detalhes' é obrigatório.");
+                }
+                // Verifica se o campo Detalhes contém mais de 500 caracteres
+                if (value.Length > 500)
+                {
+                    throw new ArgumentException("O campo 'Detalhes' não pode exceder 500 caracteres.");
+                }
+                _detalhes = value;
+            }
         }
+
+        // Propriedade Destino
         public string Destino
         {
             get { return _destino; }
-            set { _destino = value; }
+            set
+            {
+                // Verifica se o campo Destino está vazio ou contém apenas espaços
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("O campo 'Destino' é obrigatório.");
+                }
+                // Verifica se o campo Destino tem mais de 50 caracteres
+                if (value.Length > 50)
+                {
+                    throw new ArgumentException("O destino não pode ter mais de 50 caracteres.");
+                }
+                _destino = value;
+            }
         }
+
+        // Propriedade Hospedagem
+        public string Hospedagem
+        {
+            get { return _hospedagem; }
+            set
+            {
+                // Verifica se o campo Hospedagem está vazio ou contém apenas espaços
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("O campo 'Hospedagem' é obrigatório.");
+                }
+                // Verifica se o nome da Hospedagem contém caracteres válidos (letras, números, acentos, etc.)
+                if (!System.Text.RegularExpressions.Regex.IsMatch(value, @"^[a-zA-Z0-9\sàáâãäåæçèéêëìíîïòóôõöøùúûüýÿ`'~]+$"))
+                {
+                    throw new ArgumentException("O nome da hospedagem deve conter apenas letras, números, espaços e alguns sinais de pontuação (acentos, til, etc.).");
+                }
+                _hospedagem = value;
+            }
+        }
+
 
         //Construtor para receber Cadastro Pacote
         public Pacote(int id, DateTime Data, DateTime Regresso, Decimal QuantidadedeNoites, Decimal Valor, Decimal QuantidadeDisponivel, string Detalhes, string Destino, string Hospedagem)
         {
-            this._id = id;
-            this._data = Data;
-            this._regresso = Regresso;
-            this._quantidadeDeNoites = Convert.ToInt16(QuantidadedeNoites);
-            this._valor = Convert.ToInt16(Valor);
-            this._quantidadeDisponivel = Convert.ToInt16(QuantidadeDisponivel);
-            this._detalhes = Detalhes;
-            this._destino = Destino;
-            this._hospedagem = Hospedagem;
+            this.ID = id;
+            this.Data = Data;
+            this.DataRegresso = Regresso;
+            this.QuantidadeDeNoites = Convert.ToInt16(QuantidadedeNoites);
+            this.Valor = Convert.ToInt16(Valor);
+            this.QuantidadeDisponivel = Convert.ToInt16(QuantidadeDisponivel);
+            this.Detalhes = Detalhes;
+            this.Destino = Destino;
+            this.Hospedagem = Hospedagem;
         }
     }
 }

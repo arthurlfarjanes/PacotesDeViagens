@@ -65,7 +65,7 @@ namespace PacotesDeViagens
         {
             if (FrmCadastroReservaObj == null || FrmCadastroReservaObj.IsDisposed)
             {
-                FrmCadastroReservaObj = new frmCadastroReserva(reservas);
+                FrmCadastroReservaObj = new frmCadastroReserva(reservas, pacotes, clientes);
                 FrmCadastroReservaObj.MdiParent = this;
                 FrmCadastroReservaObj.Show();
             }
