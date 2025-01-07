@@ -66,7 +66,7 @@ namespace PacotesDeViagens
 
                 // Criação da reserva
                 int idReserva = reservas.Count > 0 ? reservas.Max(r => r.Id) + 1 : 1;  // Gerando um ID único para a reserva
-                Reserva novaReserva = new Reserva(idReserva, "Pendente", pacotesReserva)
+                Reserva novaReserva = new Reserva(idReserva, "Pendente", pacotesReserva, cpfCliente)
                 {
                     CpfCliente = cpfCliente
                 };

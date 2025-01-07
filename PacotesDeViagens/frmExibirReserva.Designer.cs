@@ -32,6 +32,7 @@
             this.IdReserva = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StatusReserva = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnConfirmarReserva = new System.Windows.Forms.Button();
+            this.btnCancelarReserva = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewReservas
@@ -45,6 +46,7 @@
             this.listViewReservas.Margin = new System.Windows.Forms.Padding(2);
             this.listViewReservas.MultiSelect = false;
             this.listViewReservas.Name = "listViewReservas";
+            this.listViewReservas.OwnerDraw = true;
             this.listViewReservas.Size = new System.Drawing.Size(170, 227);
             this.listViewReservas.TabIndex = 0;
             this.listViewReservas.UseCompatibleStateImageBehavior = false;
@@ -62,19 +64,32 @@
             // 
             // btnConfirmarReserva
             // 
-            this.btnConfirmarReserva.Location = new System.Drawing.Point(31, 83);
+            this.btnConfirmarReserva.BackColor = System.Drawing.Color.Lime;
+            this.btnConfirmarReserva.Location = new System.Drawing.Point(26, 24);
             this.btnConfirmarReserva.Name = "btnConfirmarReserva";
             this.btnConfirmarReserva.Size = new System.Drawing.Size(133, 27);
             this.btnConfirmarReserva.TabIndex = 1;
             this.btnConfirmarReserva.Text = "Confirmar Reserva";
-            this.btnConfirmarReserva.UseVisualStyleBackColor = true;
+            this.btnConfirmarReserva.UseVisualStyleBackColor = false;
             this.btnConfirmarReserva.Click += new System.EventHandler(this.btnConfirmarReserva_Click);
+            // 
+            // btnCancelarReserva
+            // 
+            this.btnCancelarReserva.BackColor = System.Drawing.Color.Red;
+            this.btnCancelarReserva.Location = new System.Drawing.Point(26, 70);
+            this.btnCancelarReserva.Name = "btnCancelarReserva";
+            this.btnCancelarReserva.Size = new System.Drawing.Size(133, 26);
+            this.btnCancelarReserva.TabIndex = 2;
+            this.btnCancelarReserva.Text = "Cancelar Reserva";
+            this.btnCancelarReserva.UseVisualStyleBackColor = false;
+            this.btnCancelarReserva.Click += new System.EventHandler(this.btnCancelarReserva_Click);
             // 
             // frmExibirReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 259);
+            this.Controls.Add(this.btnCancelarReserva);
             this.Controls.Add(this.btnConfirmarReserva);
             this.Controls.Add(this.listViewReservas);
             this.Name = "frmExibirReserva";
@@ -90,5 +105,6 @@
         private System.Windows.Forms.ColumnHeader IdReserva;
         private System.Windows.Forms.ColumnHeader StatusReserva;
         private System.Windows.Forms.Button btnConfirmarReserva;
+        private System.Windows.Forms.Button btnCancelarReserva;
     }
 }
