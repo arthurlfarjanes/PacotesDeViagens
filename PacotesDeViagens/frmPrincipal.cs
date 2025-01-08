@@ -118,15 +118,5 @@ namespace PacotesDeViagens
                 FrmExibirReservaObj.Activate();
             }
         }
-
-        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void frmPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

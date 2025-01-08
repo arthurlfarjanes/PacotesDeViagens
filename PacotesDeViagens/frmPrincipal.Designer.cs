@@ -52,7 +52,6 @@
             this.menuStrip.Size = new System.Drawing.Size(800, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
-            this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
             // 
             // MenuItemSistemadeGerenciamentodeViagens
             // 
@@ -67,21 +66,21 @@
             // pacoteToolStripMenuItem1
             // 
             this.pacoteToolStripMenuItem1.Name = "pacoteToolStripMenuItem1";
-            this.pacoteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.pacoteToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.pacoteToolStripMenuItem1.Text = "Pacote";
             this.pacoteToolStripMenuItem1.Click += new System.EventHandler(this.pacoteToolStripMenuItem1_Click);
             // 
             // reservaToolStripMenuItem1
             // 
             this.reservaToolStripMenuItem1.Name = "reservaToolStripMenuItem1";
-            this.reservaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.reservaToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.reservaToolStripMenuItem1.Text = "Reserva";
             this.reservaToolStripMenuItem1.Click += new System.EventHandler(this.reservaToolStripMenuItem1_Click);
             // 
             // clienteToolStripMenuItem1
             // 
             this.clienteToolStripMenuItem1.Name = "clienteToolStripMenuItem1";
-            this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.clienteToolStripMenuItem1.Text = "Cliente";
             this.clienteToolStripMenuItem1.Click += new System.EventHandler(this.clienteToolStripMenuItem1_Click);
             // 
@@ -127,7 +126,6 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gerenciamento de Viagens";
-            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);

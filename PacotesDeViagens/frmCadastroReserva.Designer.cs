@@ -56,6 +56,7 @@
             this.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNome.Location = new System.Drawing.Point(62, 41);
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNome.MaxLength = 11;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(154, 20);
             this.txtNome.TabIndex = 11;
@@ -112,7 +113,7 @@
             this.btnCadastrarReserva.TabIndex = 21;
             this.btnCadastrarReserva.Text = "Cadastrar Reserva";
             this.btnCadastrarReserva.UseVisualStyleBackColor = false;
-            this.btnCadastrarReserva.Click += new System.EventHandler(this.btnCadastrarReserva_Click_1);
+            this.btnCadastrarReserva.Click += new System.EventHandler(this.btnCadastrarReserva_Click);
             // 
             // frmCadastroReserva
             // 

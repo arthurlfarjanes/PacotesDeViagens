@@ -157,11 +157,21 @@ namespace PacotesDeViagens
 
         private void TirarSimbolos(object sender, KeyPressEventArgs e)
         {
-            //validação para permitir apenas números e backspace:
+            //Validação para permitir apenas números e backspace:
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 // Cancela a tecla pressionada
                 e.Handled = true;
+            }
+        }
+
+        //Validação para que não seja possível digitar um número no nome
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verifica se a tecla pressionada é um número (0-9)
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Impede que o número seja digitado
             }
         }
     }

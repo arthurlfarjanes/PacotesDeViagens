@@ -21,9 +21,9 @@ namespace PacotesDeViagens
             this.reservas = reservas;
             this.pacotes = pacotes;
             this.clientes = clientes;
-        }        
+        }
 
-        private void btnCadastrarReserva_Click_1(object sender, EventArgs e)
+        private void btnCadastrarReserva_Click(object sender, EventArgs e)
         {
             try
             {
@@ -93,5 +93,5 @@ namespace PacotesDeViagens
             txtIDPacote.Clear();
             nudQuantidadePacote.Value = 1;
         }
-    }
+    }    
 }
