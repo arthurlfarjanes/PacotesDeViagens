@@ -73,6 +73,18 @@ namespace PacotesDeViagens
                     throw new Exception("Por favor, insira o nome completo (nome e sobrenome).");
                 }
 
+                // testa se logradouro é valido, necessário add o fixo "rua" e complemento 
+                string logradouro = txtLogradouro.Text.Trim();
+                int space = logradouro.Split(' ').Length - 1;
+                if (space < 1)
+                {
+                    throw new Exception("Por favor, insira um logradouro valido!");
+                }
+                if (logradouro.Length < 4)
+                {
+                    throw new Exception("Insira um logradouro que tenha pelo menos 5 caracteres!");
+                }
+
                 // Obtendo o valor do campo "Sexo" com base nos RadioButtons
                 string sexo = ObterSexoSelecionado();
 

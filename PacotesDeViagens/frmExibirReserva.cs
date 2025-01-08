@@ -15,8 +15,9 @@ namespace PacotesDeViagens
     {
         List<Reserva> reservas;
         List<Cliente> clientes;
+        List<Pacote> pacotes;
 
-        public frmExibirReserva(List<Reserva> reservas, List<Cliente> clientes)
+        public frmExibirReserva(List<Reserva> reservas, List<Cliente> clientes, List<Pacote> pacotes)
         {
             InitializeComponent();
             this.reservas = reservas;
@@ -117,6 +118,19 @@ namespace PacotesDeViagens
 
                     // Atualiza o status da reserva para "Cancelada"
                     reserva.Status = "Cancelada";
+
+                    // Buscando ID do pacote
+                    var idsPacotes = reserva.Pacotes.Select(p => p.ID).ToArray();
+
+                    // Para cada pacote na reserva, encontra o pacote correspondente na lista de pacotes e atualiza sua disponibilidade
+                    foreach (var pacoteReserva in reserva.Pacotes)
+                    {
+                        if (pacoteReserva != null)
+                        {
+                            // Atualiza a quantidade disponível do pacote encontrado
+                            pacoteReserva.QuantidadeDisponivel += (idsPacotes.Length - (idsPacotes.Length - 1));
+                        }
+                    }
 
                     // Atualiza o status no ListView
                     lvReservas.SelectedItems[0].SubItems[1].Text = "Cancelada";
