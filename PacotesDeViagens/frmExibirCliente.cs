@@ -35,7 +35,66 @@ namespace PacotesDeViagens
             }
         }
 
-       
+        private void btnAdicionarSaldo_Click(object sender, EventArgs e)
+        {
+            if (listViewClientes.SelectedItems.Count > 0) {
+                string cpfCliente = listViewClientes.SelectedItems[0].SubItems[0].Text;
+
+                Cliente cliente = clientes.FirstOrDefault(c => c.CPF == cpfCliente);
+
+                if (cliente != null)
+                {
+                    double valor = Convert.ToDouble(nudEditarSaldo.Value);
+                    if (valor <= 0)
+                    {
+                        MessageBox.Show("Valor Inválido! Digite algo maior que 0.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; // Impede a execução do restante do código
+                    }
+
+                    cliente.AdicionarSaldo(valor);
+                    MessageBox.Show("Saldo Atualizado com sucesso!");
+                    nudEditarSaldo.Value = 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um cliente!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Impede a execução do restante do código
+            }
+        }
+
+        private void btnDescontarSaldo_Click(object sender, EventArgs e)
+        {
+            if (listViewClientes.SelectedItems.Count > 0)
+            {
+                string cpfCliente = listViewClientes.SelectedItems[0].SubItems[0].Text;
+
+                Cliente cliente = clientes.FirstOrDefault(c => c.CPF == cpfCliente);
+
+                if (cliente != null)
+                {
+                    double valor = Convert.ToDouble(nudEditarSaldo.Value);
+                    if (valor <= 0)
+                    {
+                        MessageBox.Show("Valor Inválido! Digite algo maior que 0.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; // Impede a execução do restante do código
+                    }
+                    else if (valor > cliente.Saldo)
+                    {
+                        MessageBox.Show("Valor Inválido! Digite algo menor que o saldo atual.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; // Impede a execução do restante do código
+                    }
+
+                    cliente.DescontarSaldo(valor);
+                    MessageBox.Show("Saldo Atualizado com sucesso!");
+                    nudEditarSaldo.Value = 0;
+                } else
+                {
+                    MessageBox.Show("Selecione um cliente!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Impede a execução do restante do código
+                }
+            }
+        }
     }
 
 

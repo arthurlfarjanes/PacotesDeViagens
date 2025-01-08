@@ -37,6 +37,11 @@
             this.EstadoColuna = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PaisColuna = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SaldoColuna = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAdicionarSaldo = new System.Windows.Forms.Button();
+            this.btnDescontarSaldo = new System.Windows.Forms.Button();
+            this.nudEditarSaldo = new System.Windows.Forms.NumericUpDown();
+            this.lblEditarSaldo = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditarSaldo)).BeginInit();
             this.SuspendLayout();
             // 
             // listViewClientes
@@ -50,12 +55,12 @@
             this.EstadoColuna,
             this.PaisColuna,
             this.SaldoColuna});
+            this.listViewClientes.FullRowSelect = true;
             this.listViewClientes.HideSelection = false;
-            this.listViewClientes.Location = new System.Drawing.Point(9, 14);
-            this.listViewClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listViewClientes.MultiSelect = false;
+            this.listViewClientes.Location = new System.Drawing.Point(7, 11);
+            this.listViewClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewClientes.Name = "listViewClientes";
-            this.listViewClientes.Size = new System.Drawing.Size(729, 349);
+            this.listViewClientes.Size = new System.Drawing.Size(561, 242);
             this.listViewClientes.TabIndex = 0;
             this.listViewClientes.UseCompatibleStateImageBehavior = false;
             this.listViewClientes.View = System.Windows.Forms.View.Details;
@@ -100,17 +105,69 @@
             this.SaldoColuna.Text = "Saldo";
             this.SaldoColuna.Width = 81;
             // 
+            // btnAdicionarSaldo
+            // 
+            this.btnAdicionarSaldo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAdicionarSaldo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdicionarSaldo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarSaldo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAdicionarSaldo.Location = new System.Drawing.Point(7, 312);
+            this.btnAdicionarSaldo.Name = "btnAdicionarSaldo";
+            this.btnAdicionarSaldo.Size = new System.Drawing.Size(113, 23);
+            this.btnAdicionarSaldo.TabIndex = 2;
+            this.btnAdicionarSaldo.Text = "Adicionar Saldo";
+            this.btnAdicionarSaldo.UseVisualStyleBackColor = false;
+            this.btnAdicionarSaldo.Click += new System.EventHandler(this.btnAdicionarSaldo_Click);
+            // 
+            // btnDescontarSaldo
+            // 
+            this.btnDescontarSaldo.BackColor = System.Drawing.Color.SlateGray;
+            this.btnDescontarSaldo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescontarSaldo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescontarSaldo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDescontarSaldo.Location = new System.Drawing.Point(126, 312);
+            this.btnDescontarSaldo.Name = "btnDescontarSaldo";
+            this.btnDescontarSaldo.Size = new System.Drawing.Size(113, 23);
+            this.btnDescontarSaldo.TabIndex = 3;
+            this.btnDescontarSaldo.Text = "Descontar Saldo";
+            this.btnDescontarSaldo.UseVisualStyleBackColor = false;
+            this.btnDescontarSaldo.Click += new System.EventHandler(this.btnDescontarSaldo_Click);
+            // 
+            // nudEditarSaldo
+            // 
+            this.nudEditarSaldo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nudEditarSaldo.Location = new System.Drawing.Point(7, 286);
+            this.nudEditarSaldo.Name = "nudEditarSaldo";
+            this.nudEditarSaldo.Size = new System.Drawing.Size(232, 20);
+            this.nudEditarSaldo.TabIndex = 7;
+            // 
+            // lblEditarSaldo
+            // 
+            this.lblEditarSaldo.AutoSize = true;
+            this.lblEditarSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblEditarSaldo.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblEditarSaldo.Location = new System.Drawing.Point(4, 267);
+            this.lblEditarSaldo.Name = "lblEditarSaldo";
+            this.lblEditarSaldo.Size = new System.Drawing.Size(81, 16);
+            this.lblEditarSaldo.TabIndex = 8;
+            this.lblEditarSaldo.Text = "Editar Saldo";
+            // 
             // frmExibirCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 377);
+            this.ClientSize = new System.Drawing.Size(566, 344);
+            this.Controls.Add(this.lblEditarSaldo);
+            this.Controls.Add(this.nudEditarSaldo);
+            this.Controls.Add(this.btnDescontarSaldo);
+            this.Controls.Add(this.btnAdicionarSaldo);
             this.Controls.Add(this.listViewClientes);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmExibirCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes Cadastrados";
+            ((System.ComponentModel.ISupportInitialize)(this.nudEditarSaldo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -125,5 +182,9 @@
         private System.Windows.Forms.ColumnHeader EstadoColuna;
         private System.Windows.Forms.ColumnHeader PaisColuna;
         private System.Windows.Forms.ColumnHeader SaldoColuna;
+        private System.Windows.Forms.Button btnAdicionarSaldo;
+        private System.Windows.Forms.Button btnDescontarSaldo;
+        private System.Windows.Forms.NumericUpDown nudEditarSaldo;
+        private System.Windows.Forms.Label lblEditarSaldo;
     }
 }
