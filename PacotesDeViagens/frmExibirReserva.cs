@@ -57,42 +57,35 @@ namespace PacotesDeViagens
                         return; // Impede a confirmação
                     }
 
-                    // Localiza o cliente associado à reserva pelo CPF
-                    Cliente cliente = clientes.FirstOrDefault(c => c.CPF == reserva.CpfCliente);
+                    // Chama o método ConfirmarReserva da classe Reserva
+                    string resultado = reserva.ConfirmarReserva(clientes);
 
-                    if (cliente == null)
+                    // Verifica se a confirmação foi bem-sucedida
+                    if (resultado.Contains("sucesso"))
                     {
-                        MessageBox.Show("Cliente associado à reserva não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        // Atualiza o status no ListView
+                        lvReservas.SelectedItems[0].SubItems[1].Text = "Confirmada";
+
+                        // Exibe uma mensagem de sucesso
+                        MessageBox.Show(resultado, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    // Calcula o valor total da reserva
-                    double valorTotalReserva = reserva.CalcularValorTotal();  // Supondo que há um método para calcular o valor total
-
-                    // Verifica se o cliente possui saldo suficiente
-                    if (cliente.Saldo < valorTotalReserva)
+                    else
                     {
-                        MessageBox.Show("Saldo insuficiente para confirmar a reserva.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        // Exibe a mensagem de erro retornada
+                        MessageBox.Show(resultado, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-
-                    // Deduz o valor da reserva do saldo do cliente
-                    cliente.Saldo -= valorTotalReserva;
-
-                    // Atualiza o status da reserva para "Confirmada"
-                    reserva.Status = "Confirmada";
-
-                    // Atualiza o status no ListView
-                    lvReservas.SelectedItems[0].SubItems[1].Text = "Confirmada";
-
-                    // Exibe uma mensagem de sucesso
-                    MessageBox.Show($"Reserva confirmada com sucesso!\nCliente: {cliente.Nome}\nSaldo atualizado: R$ {cliente.Saldo:F2}",
-                        "Sucesso",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Reserva não encontrada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+            {
+                MessageBox.Show("Selecione uma reserva para confirmar.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
 
         private void btnCancelarReserva_Click(object sender, EventArgs e)
         {

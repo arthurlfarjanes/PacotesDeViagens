@@ -57,6 +57,13 @@ namespace PacotesDeViagens
                 // Captura a quantidade de pacotes desejados
                 int quantidadePacotes = (int)nudQuantidadePacote.Value;
 
+                // Verifica se a quantidade de pacotes disponíveis é suficiente
+                if (pacote.QuantidadeDisponivel < quantidadePacotes)
+                {
+                    MessageBox.Show("Não há pacotes suficientes disponíveis para esta reserva.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // Cria uma lista de pacotes para a reserva (quantidade de pacotes desejados)
                 List<Pacote> pacotesReserva = new List<Pacote>();
                 for (int i = 0; i < quantidadePacotes; i++)
@@ -74,6 +81,9 @@ namespace PacotesDeViagens
                 // Adiciona a reserva à lista
                 reservas.Add(novaReserva);
 
+                // Atualiza a quantidade de pacotes disponíveis no pacote original após a reserva
+                pacote.QuantidadeDisponivel -= quantidadePacotes;  // Decrementa a quantidade disponível
+
                 // Exibe mensagem de sucesso
                 MessageBox.Show("Reserva cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -85,6 +95,7 @@ namespace PacotesDeViagens
                 // Caso ocorra algum erro
                 MessageBox.Show($"Erro ao cadastrar reserva: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
         private void LimparCampos()
         {

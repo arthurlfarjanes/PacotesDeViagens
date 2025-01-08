@@ -17,23 +17,19 @@ namespace PacotesDeViagens
         private string _detalhes;
         private string _destino;
         private string _hospedagem;
+        private static int ultimoId = 0;
+
+        
+        public int ID
+        {
+            get { return _id; }
+            private set { _id = value; } 
+        }
 
 
         // Variável que busca a data atual do computador do usuário
         DateTime DataAtual = DateTime.Now.Date;
-
-        public int ID
-        {
-            get { return _id; }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException("Id inválido! Informe um número maior que 0.");
-                }
-                _id = value;
-            }
-        }
+        
         public DateTime Data
         {
             get { return _data; }
@@ -159,9 +155,9 @@ namespace PacotesDeViagens
 
 
         //Construtor para receber Cadastro Pacote
-        public Pacote(int id, DateTime Data, DateTime Regresso, Decimal QuantidadedeNoites, Decimal Valor, Decimal QuantidadeDisponivel, string Detalhes, string Destino, string Hospedagem)
+        public Pacote(DateTime Data, DateTime Regresso, Decimal QuantidadedeNoites, Decimal Valor, Decimal QuantidadeDisponivel, string Detalhes, string Destino, string Hospedagem)
         {
-            this.ID = id;
+            ID = ++ultimoId;
             this.Data = Data;
             this.DataRegresso = Regresso;
             this.QuantidadeDeNoites = Convert.ToInt16(QuantidadedeNoites);

@@ -45,7 +45,7 @@ namespace PacotesDeViagens
 
             foreach (var pacote in Pacotes)
             {
-                valorTotal += pacote.Valor * pacote.QuantidadeDisponivel;
+                valorTotal += pacote.Valor;
             }
 
             return valorTotal;

@@ -66,7 +66,7 @@
             this.lvReservas.HideSelection = false;
             this.lvReservas.Location = new System.Drawing.Point(174, 26);
             this.lvReservas.Name = "lvReservas";
-            this.lvReservas.Size = new System.Drawing.Size(202, 212);
+            this.lvReservas.Size = new System.Drawing.Size(191, 221);
             this.lvReservas.TabIndex = 4;
             this.lvReservas.UseCompatibleStateImageBehavior = false;
             this.lvReservas.View = System.Windows.Forms.View.Details;
@@ -74,10 +74,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 87;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Status";
+            this.columnHeader2.Width = 99;
             // 
             // frmExibirReserva
             // 

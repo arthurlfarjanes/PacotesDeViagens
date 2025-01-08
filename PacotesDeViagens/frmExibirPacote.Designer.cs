@@ -48,10 +48,11 @@
             this.DetalhesColuna});
             this.lvwCadastroPacote.HideSelection = false;
             this.lvwCadastroPacote.LabelWrap = false;
-            this.lvwCadastroPacote.Location = new System.Drawing.Point(37, 82);
+            this.lvwCadastroPacote.Location = new System.Drawing.Point(24, 35);
+            this.lvwCadastroPacote.Margin = new System.Windows.Forms.Padding(2);
             this.lvwCadastroPacote.MultiSelect = false;
             this.lvwCadastroPacote.Name = "lvwCadastroPacote";
-            this.lvwCadastroPacote.Size = new System.Drawing.Size(493, 240);
+            this.lvwCadastroPacote.Size = new System.Drawing.Size(401, 185);
             this.lvwCadastroPacote.TabIndex = 0;
             this.lvwCadastroPacote.UseCompatibleStateImageBehavior = false;
             this.lvwCadastroPacote.View = System.Windows.Forms.View.Details;
@@ -86,15 +87,13 @@
             // 
             // frmExibirPacote
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 395);
+            this.ClientSize = new System.Drawing.Size(466, 273);
             this.Controls.Add(this.lvwCadastroPacote);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmExibirPacote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmExibirPacote";
-            this.Load += new System.EventHandler(this.frmExibirPacote_Load);
             this.ResumeLayout(false);
 
         }

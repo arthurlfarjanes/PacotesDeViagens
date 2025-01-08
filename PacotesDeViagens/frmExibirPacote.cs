@@ -25,14 +25,9 @@ namespace PacotesDeViagens
                 item.SubItems.Add(pacote.QuantidadeDeNoites.ToString());
                 item.SubItems.Add(pacote.Valor.ToString());
                 item.SubItems.Add(pacote.QuantidadeDisponivel.ToString());
-                item.SubItems.Add(pacote.Detalhes);       
-              lvwCadastroPacote.Items.Add(item);
+                item.SubItems.Add(pacote.Detalhes);
+                lvwCadastroPacote.Items.Add(item);
             }
-        }
-
-        private void frmExibirPacote_Load(object sender, EventArgs e)
-        {
-
-        }
+        }        
     }
 }
