@@ -48,11 +48,11 @@
             this.DetalhesColuna});
             this.lvwCadastroPacote.HideSelection = false;
             this.lvwCadastroPacote.LabelWrap = false;
-            this.lvwCadastroPacote.Location = new System.Drawing.Point(24, 35);
+            this.lvwCadastroPacote.Location = new System.Drawing.Point(11, 11);
             this.lvwCadastroPacote.Margin = new System.Windows.Forms.Padding(2);
             this.lvwCadastroPacote.MultiSelect = false;
             this.lvwCadastroPacote.Name = "lvwCadastroPacote";
-            this.lvwCadastroPacote.Size = new System.Drawing.Size(401, 185);
+            this.lvwCadastroPacote.Size = new System.Drawing.Size(444, 251);
             this.lvwCadastroPacote.TabIndex = 0;
             this.lvwCadastroPacote.UseCompatibleStateImageBehavior = false;
             this.lvwCadastroPacote.View = System.Windows.Forms.View.Details;
@@ -83,7 +83,7 @@
             // DetalhesColuna
             // 
             this.DetalhesColuna.Text = "Detalhes";
-            this.DetalhesColuna.Width = 81;
+            this.DetalhesColuna.Width = 124;
             // 
             // frmExibirPacote
             // 
@@ -93,7 +93,7 @@
             this.Controls.Add(this.lvwCadastroPacote);
             this.Name = "frmExibirPacote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmExibirPacote";
+            this.Text = "Consulta de Pacote";
             this.ResumeLayout(false);
 
         }

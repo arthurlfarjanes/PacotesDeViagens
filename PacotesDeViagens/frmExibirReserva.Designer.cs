@@ -38,6 +38,9 @@
             // btnConfirmarReserva
             // 
             this.btnConfirmarReserva.BackColor = System.Drawing.Color.Lime;
+            this.btnConfirmarReserva.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmarReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmarReserva.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnConfirmarReserva.Location = new System.Drawing.Point(12, 67);
             this.btnConfirmarReserva.Name = "btnConfirmarReserva";
             this.btnConfirmarReserva.Size = new System.Drawing.Size(133, 27);
@@ -49,6 +52,9 @@
             // btnCancelarReserva
             // 
             this.btnCancelarReserva.BackColor = System.Drawing.Color.Red;
+            this.btnCancelarReserva.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelarReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarReserva.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancelarReserva.Location = new System.Drawing.Point(12, 115);
             this.btnCancelarReserva.Name = "btnCancelarReserva";
             this.btnCancelarReserva.Size = new System.Drawing.Size(133, 26);
@@ -91,7 +97,7 @@
             this.Controls.Add(this.btnConfirmarReserva);
             this.Name = "frmExibirReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmExibirReserva";
+            this.Text = "Gerenciamento de Reserva";
             this.ResumeLayout(false);
 
         }
